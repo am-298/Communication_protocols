@@ -1,4 +1,4 @@
-# Communication Protocols in Verilog/SystemVerilog
+# Communication Protocols in Verilog
 
 This repository contains implementations of three widely-used communication protocols—**UART**, **SPI**, and **I2C**—written in Verilog. These protocols are essential for embedded systems, FPGA, and ASIC designs, and the repository aims to provide modular, reusable code that can be easily integrated into hardware projects.
 
