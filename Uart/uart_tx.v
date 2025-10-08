@@ -40,11 +40,12 @@ always @(posedge i_clk_sys or negedge i_rst_l)
                         o_tx_serial <= 1'b1; // line is high -> idle
                         clk_count <=0;  // counts the clock cycles in one bit
                         bit_index <=0;  // index of the bit being sent
-                        if (i_tx_start == 1'b1) begin
+                        if (i_tx_start == 1'b1) 
+                        begin
                             o_tx_active <= 1'b1; // transmission is active
                             tx_data <= i_tx_byte; // load the data to be sent
                             state <= Start_bit;  // go to start bit state
-                    end
+                        end
                     else begin
                         state <= IDLE;
                         o_tx_active <= 1'b0;
@@ -60,7 +61,7 @@ always @(posedge i_clk_sys or negedge i_rst_l)
                             clk_count <=0;
                             state <= Data_bits;
                         end
-                        end
+                    end
             Data_bits:
                     begin
                         o_tx_serial <= tx_data[bit_index]; //send the data bit]
@@ -89,6 +90,7 @@ always @(posedge i_clk_sys or negedge i_rst_l)
             if (clk_count < CLKS_PER_BIT-1)
             begin
                 clk_count <= clk_count +1;
+            
             end
 
             else 
