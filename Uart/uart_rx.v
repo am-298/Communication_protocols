@@ -1,4 +1,12 @@
-module uart_rx #(parameter CLKS_PER_BIT = 217) // 115200 baud at 10MHz clock
+//////////////////////////////////////////////////////////////////////////////////
+// Uart Receiver Module
+// Author: Ayushi Maurya
+// Clock frequency: 50MHz
+// Clock per bit: 217 (for 230400 baud rate)
+// just for learning purpose
+//////////////////////////////////////////////////////////////////////////////////
+
+module uart_rx #(parameter CLKS_PER_BIT = 217) 
 (
     input i_rst_l, // active low reset
     input sys_clk, // system clock
@@ -12,7 +20,7 @@ localparam IDLE       = 3'b000;
 localparam Start_bit   = 3'b001;
 localparam Data_bits  = 3'b010;
 localparam Stop_bit   = 3'b011;
-localparam clean      = 3'b100;
+localparam Clean      = 3'b100;
 
 
 // some registers in the module
